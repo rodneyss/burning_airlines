@@ -16,11 +16,11 @@
     <% @planes.each do |plane| %>
       <tr>
         <td><%= plane.name %></td>
-        <td><%= plane.row %></td>
-        <td><%= plane.column %></td>
-        <td><%= link_to 'Show', plane %></td>
-        <td><%= link_to 'Edit', edit_plane_path(plane) %></td>
-        <td><%= link_to 'Destroy', plane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= plane.seats %></td>
+
+        <td><%= link_to 'Show', app_plane_path %></td>
+        <td><%= link_to 'Edit', edit_app_plane_path(plane) %></td>
+        <td><%= link_to 'Destroy', app_plane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

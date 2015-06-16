@@ -1,4 +1,4 @@
-class PlanesController < ApplicationController
+class App::PlanesController < ApplicationController
   before_action :set_plane, only: [:show, :edit, :update, :destroy]
 
   # GET /planes
@@ -10,6 +10,8 @@ class PlanesController < ApplicationController
   # GET /planes/1
   # GET /planes/1.json
   def show
+
+      
   end
 
   # GET /planes/new
