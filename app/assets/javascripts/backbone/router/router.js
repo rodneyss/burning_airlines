@@ -1,19 +1,52 @@
-var Workspace = Backbone.Router.extend({
-  routes:{
-    '*filter': 'setFilter'
+// var app = app || {};
+
+// // Router is similar to routes.rb in Rails but with code actions as well.
+// app.AppRouter = Backbone.Router.extend({
+//   routes: {
+//     '': 'index',
+//     'posts/:id': 'viewPost'
+//   },
+
+//   // GET /
+//   index: function () {
+//     var appView = new app.AppView({collection: app.blogPosts});
+//     appView.render();
+//   },
+
+//   // GET /posts/:id
+//   viewPost: function (id) {
+//     var post = app.blogPosts.get(id);
+//     var postView = new PostView({model: post});
+//     postView.render();
+//   }
+// });
+
+var app = app || {};
+
+// Router is similar to routes.rb in Rails but with code actions as well.
+app.AppRouter = Backbone.Router.extend({
+  routes: {
+    '': 'home'
+    'flights/:id': 'viewFlight'
+    'planes/:id': 'viewPlane'
   },
 
-  setFilter: function( param ) {
-    //Set the current filter to be used(This occurs when clicking on the corresponding button)
-    if(param){
-      param = param.trim();
-    }
-    app.TodoFilter = param || '';
 
-    app.Todos.trigger('filter');
+  viewPlane: function (id) {
+    var plane = app.plane.get(id);
+    var planeView = new PlaneView({model: plane})
+    viewPlane.render()
+  },
+
+  viewFlight: function (id) {
+    var flight = app.flight.get(id);
+    var flightView = new FlightView({model: flight})
+    flightView.render()
+  },
+
+  home: function () {
+    var appView = new app.AppView({collection: })
+    appView.render()
   }
 
 });
-
-app.TodoRouter = new Workspace();
-Backbone.history.start();
