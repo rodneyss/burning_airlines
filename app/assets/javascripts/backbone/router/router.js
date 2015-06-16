@@ -31,7 +31,6 @@ app.AppRouter = Backbone.Router.extend({
     'planes/:id': 'viewPlane'
   },
 
-
   viewPlane: function (id) {
     var plane = app.plane.get(id);
     var planeView = new PlaneView({model: plane})
