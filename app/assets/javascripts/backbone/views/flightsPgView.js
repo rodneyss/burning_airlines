@@ -1,30 +1,42 @@
 var app = app || {};
-app.FlightsPgView = Backbone.View.extend({
-	el: '#views', 
+app.FlightPgView = Backbone.View.extend({
+	el:'#views', 
 	events:{
 		'submit #searchFlight': 'displayFlight',
 	},
-	initialize: function(){},
+	initialize: function(options){
+		this.planes = options.planes
+		this.flights= options.flights
+	},
 	render: function(){
 		var flightsPgHTML = $('#flightsPgTemplate').html();
 		this.$el.html(flightsPgHTML);
-		this.collection.each(function(flight){
-			var flightsListView = new app.FlightsListView({model:flight})
-		});
-		flightsListView.render();
+		this.flights.each(function(flight){
+			var flightsListView = new app.FlightsListView({model:flight});
+			console.log(flight);
+			flightsListView.render();
+		});	
+		this.planes.each(function(plane){
+			var selectPlaneView = new app.SelectPlaneView({model:plane});
+			selectPlaneView.render();
+		})
 	},
 	displayFlight: function(e){
 		e.preventDefault();
 		var to= $('#toLoc').val().trim();
 		var from= $('#fromLoc').val().trim();
-		var flight = new blog.Flight({
+		var plane_id = $('#flightPlane').val().trim();
+		var flight = new app.Flight({
 			to: to,
 			from: from,
 			plane_id: plane_id
 		});
 		var view = this;
-		flight.fetch().done(function(){
-			view.flights.fetch();
+		flight.save().done(function(){
+			view.flights.fetch().done(function(){
+				var flightPgRef = new app.FlightsListView({model: flight});
+		 		flightPgRef.render();
+			});
 		});
 	}
 });

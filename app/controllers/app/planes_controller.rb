@@ -5,6 +5,10 @@ class App::PlanesController < ApplicationController
   # GET /planes.json
   def index
     @planes = Plane.all
+    respond_to do |format|
+      format.html{ }
+      format.json{ render :json => @planes}
+    end
   end
 
   # GET /planes/1

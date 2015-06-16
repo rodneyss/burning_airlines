@@ -1,7 +1,7 @@
 <!-- Template for the main app view -->
 <section class="container">
 	<h2>Burning Airlines</h2>
-	<div id="#views">
+	<div id="views">
 	</div>
 </section>
 <footer>
@@ -36,7 +36,7 @@
 		</div>	
 	</div>
 </script>
-<script id="planeseatsTemplate">
+<script id="planeseatsTemplate" type="template/text">
 	<h2>{{name}}<h2>
 	<div class="grid">
 
@@ -52,21 +52,9 @@
 	<ul id="flights"></ul>
 </script>
 <script id="flightsListTemplate" type="template/text">
-	<table>
-		<thead>
-		<tr>
-			<td>Date</td>
-			<td>Flight</td>
-			<td>From > To</td>
-			<td>Plane</td>
-			<td>Seats</td>
-		</tr>
-		</thead>
-		<tbody id="flightList">
-		</tbody>
-	</table>
+	<li>{{id}} {{to}}</li>
 </script>
-<script id="flightsTemplate">
+<script id="flightsTemplate"  type="template/text">
 	<tr>
 		<td>{{date}}</td>
 		<td>{{flightId}}</td>

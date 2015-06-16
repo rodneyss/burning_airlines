@@ -1,16 +1,20 @@
 var app = app || {};
 app.FlightsListView = Backbone.View.extend({
-	el: 'li',
+	tagName: 'li',
+	url:'app/planes',
 	events:{
-		'click': showReservations
+		'click': 'showReservations'
 	},
 	initialize: function(){
 
 	},
+	showReservations: function(){
+		console.log("this is happening");
+	},
 	render: function(){
-		var flightsListTemplate = $('#flightsListHTML').html();
+		var flightsListTemplate = $('#flightsListTemplate').html();
 		var flightsListHTML = _.template(flightsListTemplate);
 		this.$el.html(flightsListHTML(this.model.toJSON()));
-		$('#posts').append(this.$el);
+		$('#flights').append(this.$el);
 	}
 });

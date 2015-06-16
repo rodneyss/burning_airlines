@@ -11,6 +11,22 @@
       <th>Date</th>
       <th colspan="3"></th>
     </tr>
+    <% @flights.each do |flight|  %>
+    <tr>
+    	<td>
+    		<%= flight.to %>
+    	</td>
+    	<td>
+    		<%= flight.from %>
+    	</td>
+    	<td>
+    		<%= flight.plane_id %>
+    	</td>
+    	<td>
+    		<%= flight.date %>
+    	</td>
+    </tr>
+    <% end %>
   </thead>
 
 
