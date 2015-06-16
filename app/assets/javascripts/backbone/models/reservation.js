@@ -1,5 +1,5 @@
 var app = app || {};
-app.reservations = Backbone.Model.extend({
+app.Reservation = Backbone.Model.extend({
   urlRoot: '/reservations',
   default:{
     user_id: null,

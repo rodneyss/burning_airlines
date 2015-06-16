@@ -33,10 +33,7 @@ app.FlightPgView = Backbone.View.extend({
 		});
 		var view = this;
 		flight.save().done(function(){
-			view.flights.fetch().done(function(){
-				var flightPgRef = new app.FlightsListView({model: flight});
-		 		flightPgRef.render();
-			});
+			view.flights.fetch();
 		});
 	}
 });
