@@ -11,7 +11,11 @@ Flight.destroy_all
 Reservation.destroy_all
 
 
-p1 = Plane.create(name: "spit",  seat: 10)
+p1 = Plane.create(name: "spit",  seats: 10)
 f1 = Flight.create(to: "sydney", from: "jersey", plane_id: 1)
 
 r1 = Reservation.create(flight_id: 1, user_id: 1, seat:2)
+
+u1 = User.create(name: "rodney")
+u2 = User.create(name: "ben")
+u3 = User.create(name: "charles")

@@ -4,7 +4,7 @@ app.flight = Backbone.Model.extend({
   default:{
     to: "Pen Island",
     from: "Sydney",
-    plane_id: nil
+    plane_id: null
   },
   initialize:function(){
 
