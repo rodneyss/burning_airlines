@@ -10,7 +10,6 @@ app.Flights = Backbone.Collection.extend({
   initialize:function(){
   	// this.plane_id
   	this.on('add', function(flight){
-  		console.log(flight);
   		var flightPgRef = new app.FlightsListView({model: flight});
   		flightPgRef.render();
   	});
