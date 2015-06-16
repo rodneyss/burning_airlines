@@ -1,1 +1,69 @@
-<h2>You've logged int</h2>
+<!-- Template for the main app view -->
+<script id="appTemplate" type="template/text">
+	<section class="container">
+		<h2>Burning Airlines</h2>
+		<div id="#views">
+		</div>
+	</section>
+	<footer>
+		<section class="container">
+			
+		</section>
+	</footer>
+</script>
+<!-- Template for the airplane view -->
+<script id="planeViewTemplate" type="template/text">
+	<button>Create Plane</button>
+</script>
+
+<!-- This will be nexted inside the AppView  -->
+<script id="flightSearchTemplate" type="template/text">
+	<div id="createPlane">
+		<form id="flightsSearch">
+			<input id="planeName" type="text" placeholder="name" name="name">
+			<input id="planeSeats" type="number" placeholder="seats" name="seats">
+			<input id="planeSubmit" type="submit" value="Create">
+		</form>
+		<div id="flightsList">
+		</div>	
+	</div>
+</script>
+<script id="planeseatsTemplate">
+	<h2>{{name}}<h2>
+	<div class="grid">
+
+	</div>
+</script>
+<script id="searchTemplate" type="template/text">
+	<form id="search-flight">
+		<input type="text" name="from" placeholder="from" id="
+		fromDest">
+		<inpu type="text" name="to" placeholder="to" id="toDest">
+		<input id="saveSearch" type="submit" value="save" >
+	</form>	
+</script>
+<script id="flightsListTemplate" type="template/text">
+	<table>
+		<thead>
+		<tr>
+			<td>Date</td>
+			<td>Flight</td>
+			<td>From > To</td>
+			<td>Plane</td>
+			<td>Seats</td>
+		</tr>
+		</thead>
+		<tbody id="flightList">
+		</tbody>
+	</table>
+</script>
+<script id="flightsTemplate">
+	<tr>
+		<td>{{date}}</td>
+		<td>{{flightId}}</td>
+		<td>{{from}}>{{to}}</td>
+		<td>{{planeId}}</td>
+	</tr>
+</script>
+<script id="bookingTemplate" type="template/text">
+</script>
