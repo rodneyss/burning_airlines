@@ -1,0 +1,15 @@
+<h2 class="loginH2"> Please enter your login details </h2>
+<%= form_tag '/login' do %>
+
+  <p>
+    <%= label_tag 'name' %>
+    <%= text_field_tag 'name' %>
+  </p>
+
+  <p>
+    <%= submit_tag 'Login' %>
+  </p>
+  <p>
+    <%= link_to('sign up', new_user_path) %>
+  </p>
+<% end %>
