@@ -1,4 +1,4 @@
-class PlanesController < ApplicationController
+class App::PlanesController < ApplicationController
   before_action :set_plane, only: [:show, :edit, :update, :destroy]
 
   # GET /planes
