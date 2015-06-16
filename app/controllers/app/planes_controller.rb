@@ -10,6 +10,8 @@ class App::PlanesController < ApplicationController
   # GET /planes/1
   # GET /planes/1.json
   def show
+
+      
   end
 
   # GET /planes/new
