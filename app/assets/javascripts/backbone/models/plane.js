@@ -3,8 +3,7 @@ app.plane = Backbone.Model.extend({
   urlRoot: '/planes',
   default:{
    name: "death machine 01",
-   row: 1,
-   column: 10
+   seats: 20
   },
   initialize:function(){
   }

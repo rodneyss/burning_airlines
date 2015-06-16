@@ -1,9 +1,16 @@
 var app = app || {};
-app.flightsListView = Backbone.View.extend({
-	$el = '#views', 
-	initialize: function(){},
+app.FlightsListView = Backbone.View.extend({
+	el: 'li',
+	events:{
+		'click': showReservations
+	},
+	initialize: function(){
+
+	},
 	render: function(){
-		var flightsListHTML = $('#flightsListTemplate').html();
-		this.$el.html(flightsListHTML);
+		var flightsListTemplate = $('#flightsListHTML').html();
+		var flightsListHTML = _.template(flightsListTemplate);
+		this.$el.html(flightsListHTML(this.model.toJSON()));
+		$('#posts').append(this.$el);
 	}
 });

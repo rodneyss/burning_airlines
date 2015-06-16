@@ -1,15 +1,23 @@
 <!-- Template for the main app view -->
-<script id="appTemplate" type="template/text">
+<section class="container">
+	<h2>Burning Airlines</h2>
+	<div id="#views">
+	</div>
+</section>
+<footer>
 	<section class="container">
-		<h2>Burning Airlines</h2>
-		<div id="#views">
-		</div>
+		
 	</section>
-	<footer>
-		<section class="container">
-			
-		</section>
-	</footer>
+</footer>
+<script id="appTemplate" type="template/text">
+	<form>
+		<input id="fromLoc" type="text" placeholder="from" name="from">
+		<input id="toLoc" type="text" placeholder="to" name="to">
+		<input type="submit" value="search">
+	</form>
+	<div class="container">
+		<ul id="searchResults"></ul>
+	</div>
 </script>
 <!-- Template for the airplane view -->
 <script id="planeViewTemplate" type="template/text">
@@ -17,14 +25,14 @@
 </script>
 
 <!-- This will be nexted inside the AppView  -->
-<script id="flightSearchTemplate" type="template/text">
+<script id="PlanePgTemplate" type="template/text">
 	<div id="createPlane">
 		<form id="flightsSearch">
 			<input id="planeName" type="text" placeholder="name" name="name">
 			<input id="planeSeats" type="number" placeholder="seats" name="seats">
 			<input id="planeSubmit" type="submit" value="Create">
 		</form>
-		<div id="flightsList">
+		<div id="seatsgrid">
 		</div>	
 	</div>
 </script>
@@ -34,13 +42,14 @@
 
 	</div>
 </script>
-<script id="searchTemplate" type="template/text">
-	<form id="search-flight">
+<script id="flightsPgTemplate" type="template/text">
+	<form id="searchFlight">
 		<input type="text" name="from" placeholder="from" id="
-		fromDest">
-		<inpu type="text" name="to" placeholder="to" id="toDest">
+		fromLoc">
+		<inpu type="text" name="to" placeholder="to" id="toLoc">
 		<input id="saveSearch" type="submit" value="save" >
 	</form>	
+	<ul id="flights"></ul>
 </script>
 <script id="flightsListTemplate" type="template/text">
 	<table>
@@ -64,6 +73,4 @@
 		<td>{{from}}>{{to}}</td>
 		<td>{{planeId}}</td>
 	</tr>
-</script>
-<script id="bookingTemplate" type="template/text">
 </script>
