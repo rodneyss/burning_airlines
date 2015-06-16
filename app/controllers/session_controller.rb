@@ -5,7 +5,7 @@ class SessionController < ApplicationController
     user = User.find_by :name => params[:name]
         if user.present?
             session[:user_id] = user.id
-            redirect_to search_path
+            redirect_to app_path
         else
             flash[:notice] = "Invalid Login, please try again"
             redirect_to login_path

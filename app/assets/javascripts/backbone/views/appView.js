@@ -8,3 +8,4 @@ app.appView = Backbone.View.extend({
 		this.$el.html(appHTML);
 	}
 });
+

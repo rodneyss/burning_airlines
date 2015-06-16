@@ -43,7 +43,6 @@
 
 Rails.application.routes.draw do
   namespace :app do
-
     resources :planes do
       resources :flights do
         resources :reservations
