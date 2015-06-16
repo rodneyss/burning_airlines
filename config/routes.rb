@@ -28,9 +28,8 @@
 #
 
 Rails.application.routes.draw do
-  namespace :app do
-    resources :planes
-      resources :flights do
+  resources :planes
+  resources :flights do
     resources :reservations
   end
   resources :users
