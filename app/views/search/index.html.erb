@@ -1,1 +1,64 @@
-<h2>You've logged int</h2>
+<!-- Template for the main app view -->
+<section class="container">
+	<h2>Burning Airlines</h2>
+	<div id="views">
+	</div>
+</section>
+<footer>
+	<section class="container">
+		
+	</section>
+</footer>
+<script id="appTemplate" type="template/text">
+	<form>
+		<input id="fromLoc" type="text" placeholder="from" name="from">
+		<input id="toLoc" type="text" placeholder="to" name="to">
+		<input type="submit" value="search">
+	</form>
+	<div class="container">
+		<ul id="searchResults"></ul>
+	</div>
+</script>
+<!-- Template for the airplane view -->
+<script id="planeViewTemplate" type="template/text">
+	<button>Create Plane</button>
+</script>
+
+<!-- This will be nexted inside the AppView  -->
+<script id="PlanePgTemplate" type="template/text">
+	<div id="createPlane">
+		<form id="flightsSearch">
+			<input id="planeName" type="text" placeholder="name" name="name">
+			<input id="planeSeats" type="number" placeholder="seats" name="seats">
+			<input id="planeSubmit" type="submit" value="Create">
+		</form>
+		<div id="seatsgrid">
+		</div>	
+	</div>
+</script>
+<script id="planeseatsTemplate" type="template/text">
+	<h2>{{name}}<h2>
+	<div class="grid">
+
+	</div>
+</script>
+<script id="flightsPgTemplate" type="template/text">
+	<form id="searchFlight">
+		<input type="text" name="from" placeholder="from" id="
+		fromLoc">
+		<inpu type="text" name="to" placeholder="to" id="toLoc">
+		<input id="saveSearch" type="submit" value="save" >
+	</form>	
+	<ul id="flights"></ul>
+</script>
+<script id="flightsListTemplate" type="template/text">
+	<li>{{id}} {{to}}</li>
+</script>
+<script id="flightsTemplate"  type="template/text">
+	<tr>
+		<td>{{date}}</td>
+		<td>{{flightId}}</td>
+		<td>{{from}}>{{to}}</td>
+		<td>{{planeId}}</td>
+	</tr>
+</script>

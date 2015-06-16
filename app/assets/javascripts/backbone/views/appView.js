@@ -1,8 +1,10 @@
 var app = app || {};
-
-// View for a single post.
-var AppView = Backbone.View.extend({
-  render: function () {
-    this.$el.html("Soupy soup soup");
-  }
+app.appView = Backbone.View.extend({
+	el:'#views', 
+	initialize: function(){},
+	render: function(){
+		var appHTML = $('#appTemplate').html();
+		this.$el.html(appHTML);
+	}
 });
+

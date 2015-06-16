@@ -44,9 +44,13 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   home: function () {
-    $('body').html('Soup')
-    var appView = new app.AppView({})
-    appView.render()
+    // var appView = new app.AppView({})
+    // appView.render()
+    var flightPgView = new app.FlightPgView({
+      flights: app.appFlights,
+      planes: app.appPlanes
+    });
+    flightPgView.render();
   }
 
 });

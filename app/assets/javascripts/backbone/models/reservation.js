@@ -4,7 +4,7 @@ app.reservations = Backbone.Model.extend({
   default:{
     user_id: null,
     flight_id: null,
-    seat: null
+	seat: null
 
   },
   initialize:function(){
