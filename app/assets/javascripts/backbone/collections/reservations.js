@@ -20,15 +20,15 @@ app.Reservations = Backbone.Collection.extend({
   },
   executePolling: function(){
   	console.log("Fetching shit");
-  	this.fetch({success:this.onFetch});
+  	console.log(app.reservations);
+  	console.log(this);
+  	app.reservations.fetch({success: app.reservations.onFetch});
   },
   onFetch: function(){
   	console.log("are you doing this shit?")
-  	debugger;
-  	console.log(this.longPolling);
-  	if(this.longPolling){
+  	if(app.reservations.longPolling){
   		console.log("longPolling is true");
-  		setTimeout(this.executePolling, 1000 * this.interval);
+  		setTimeout(app.reservations.executePolling, 100 * app.reservations.interval);
   	}
   },
   url:function(){
@@ -40,8 +40,8 @@ app.Reservations = Backbone.Collection.extend({
   	this.on('add', function(){
   		console.log("THIS IS BEING RUN");
   		var flight = app.appFlights.get(this.flight_id);
-  		var flightViewRef = new app.FlightView({model:flight});
-  		flightViewRef.render();
+  		app.flightViewRef = new app.FlightView({model:flight});
+  		app.flightViewRef.render();
   	});
   }
 });
