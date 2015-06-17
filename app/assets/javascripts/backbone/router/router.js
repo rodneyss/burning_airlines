@@ -33,8 +33,6 @@ app.AppRouter = Backbone.Router.extend({
     'flights/:id': 'viewFlight',
     'planes/:id': 'viewPlane',
     'user': 'viewUser'
-
-
   },
 
   createFlight: function () {
@@ -47,7 +45,7 @@ app.AppRouter = Backbone.Router.extend({
     createFlight.render()
   },
   createPlane: function() {
-    console.log('create plane is running  ')
+    console.log('create plane is running ')
     var createPlane = new app.PlanePgView
     createPlane.render();
   },
