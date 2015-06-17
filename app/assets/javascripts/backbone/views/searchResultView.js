@@ -1,6 +1,6 @@
 var app = app || {};
 app.SearchResultView = Backbone.View.extend({
-  tagName: 'li',
+  tagName: 'tr',
   events:{
     'click': 'showReservations'
   },

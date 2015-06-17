@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy' 
   get '/app' => 'app#index'
+  get '/user_flights' => 'app#user_flights'
 
   get '/search' => 'search#index'
 

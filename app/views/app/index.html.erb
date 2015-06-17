@@ -31,7 +31,31 @@
 		<input type="submit" value="search">
 	</form>
 	<div class="container">
-		<ul id="flights"></ul>
+		<table id="flights" style="display: none">
+			<tr>
+		    <th>Date</th>
+		    <th>From</th>		
+		    <th>To</th>
+		    <th>Plane</th>
+	  	</tr>
+		</table>
+		
+	</div>
+</script>
+
+
+<script id="userTemplate" type="template/text">
+<div>Your Flights</div>
+	<div class="container">
+		<table id="flights" style="display: none">
+			<tr>
+		    <th>Date</th>
+		    <th>From</th>		
+		    <th>To</th>
+		    <th>Plane</th>
+	  	</tr>
+		</table>
+		
 	</div>
 </script>
 
@@ -81,13 +105,17 @@
 
 
 <script id="flightsTemplate"  type="template/text">
-	<tr>
+	
 		<td>{{date}}</td>
-		<td>{{id}}</td>
-		<td>{{from}}>{{to}}</td>
+		<td>{{from}}</td>
+		<td>{{to}}</td>
 		<td>{{plane_id}}</td>
-	</tr>
+	
 </script>
 <script id="flightTemplate" type="template/text">
 	<h2>{{id}}</h2>
+	<div id="flightSeats">
+	</div>
+	<button id="reserveSeat">Reserve Seat</button>
+
 </script>

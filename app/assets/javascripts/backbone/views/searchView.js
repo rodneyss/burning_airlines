@@ -21,6 +21,8 @@ app.SearchView = Backbone.View.extend({
   },
   displayFlight: function(e){
     e.preventDefault();
+    $('#flights').hide();
+    $('#flights tr:not(:first-child) ').remove();
     var to= $('#toLoc').val().trim();
     var from= $('#fromLoc').val().trim();
     this.flightResults = app.appFlights.where({
@@ -29,11 +31,12 @@ app.SearchView = Backbone.View.extend({
     })
   
     if(this.flightResults.length === 0){
-          
+
           alert("no flights found");
 
     }else{
         _(this.flightResults).each(function(flight){
+        $('#flights').show();
         var searchResult = new app.SearchResultView({model: flight});
         searchResult.render();
 

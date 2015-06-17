@@ -16,6 +16,7 @@ app.FlightPgView = Backbone.View.extend({
 		this.$el.html(flightsPgHTML);
 		this.flights.each(function(flight){
 			var flightsListView = new app.FlightsListView({model:flight});
+
 			flightsListView.render();
 		});	
 		this.planes.each(function(plane){

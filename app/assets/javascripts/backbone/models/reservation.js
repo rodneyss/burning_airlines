@@ -1,7 +1,7 @@
 var app = app || {};
 app.Reservation = Backbone.Model.extend({
   urlRoot: function(){
-  	return '/app/flights/'+this.get('flight_id')+'/reservations'
+  	return '/app/flights/'+this.flight_id+'/reservations'
   },
   default:{
     user_id: null,
@@ -9,7 +9,6 @@ app.Reservation = Backbone.Model.extend({
 	seat: null
 
   },
-  initialize:function(){
-
+  initialize:function(data){
   }
 });
