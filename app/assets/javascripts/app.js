@@ -33,7 +33,13 @@ $(function () {
       console.log('Navigating to user page');
     });
 
-    
+
+    $('.tlt').textillate({ in: { effect: 'rollIn',
+                                sync:true,
+                                callback: function () {
+                                  $('.burning').burn();
+                                } } });
+
    	});
   });
 })

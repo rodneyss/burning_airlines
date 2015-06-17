@@ -13,7 +13,7 @@ app.FlightView=Backbone.View.extend({
 		var flightTemplate = $('#flightTemplate').html();
 		var flightHTML = _.template(flightTemplate);
 		var view = this;
-
+		// app.flightView.reservations.startPolling();
 		// Checking for the flight id of this view
 		// console.log(this.model.get('id'));
 		console.log(this.model.get('id'));
@@ -34,6 +34,7 @@ app.FlightView=Backbone.View.extend({
 			app.flightView.reservations.each(function(reservation){
 				takenseats.push(reservation.get('seat'));
 			});
+		
 			var takenseats = _.uniq(takenseats);
 			console.log(takenseats);
 			for(var i=1; i<=seats; i++){
@@ -51,6 +52,7 @@ app.FlightView=Backbone.View.extend({
 				var seat=parseInt($(e.currentTarget).attr('id'));
 					if($(this).hasClass('taken')!==true){
 						console.log("This space is not taken", seat);
+						$('#views .seats').removeClass('selected');
 						$('#'+ seat).toggleClass('selected');
 						// view.reserveSeat({
 						// 	seat_id: seat,
@@ -71,7 +73,9 @@ app.FlightView=Backbone.View.extend({
 			});
 		});
 	},
+	reload: function(option){
 
+	},
 	reserveSeat: function(option){
 		//CHECK ALL THE OPTIONS ARE PASSING THROUGH CORRECTLY
 		// console.log(option.flight_id);
@@ -102,6 +106,7 @@ app.FlightView=Backbone.View.extend({
 	initialize: function(options){
 		this.plane = app.appPlanes.get(this.model.get('plane_id'));
 		this.reservations = options.collection;
+		
 		// this.listenTo(this.reservations,'add',this.test);
 
 		// this.reservations = new app.Reservations({flight_id: this.model.get('id')});

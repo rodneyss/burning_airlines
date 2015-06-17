@@ -52,8 +52,11 @@ app.AppRouter = Backbone.Router.extend({
   viewFlight: function (id) {
     app.reservations = new app.Reservations({flight_id: id});
     app.reservations.fetch();
+
+    
     app.flight = app.appFlights.get(id);
     app.flightView = new app.FlightView({model: app.flight, collection: app.reservations});
+    app.reservations.startPolling(5);
     console.log("Routing now");
     app.flightView.render();
   },
