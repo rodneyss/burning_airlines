@@ -7,6 +7,7 @@ class App::ReservationsController < ApplicationController
       	format.json {render :json => @reservations}
       end
     end
+    
   	def create
      reservation = Reservation.create reservation_params
      render :json => reservation
