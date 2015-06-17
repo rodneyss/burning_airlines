@@ -8,7 +8,7 @@ app.PlaneSeatView = Backbone.View.extend({
   },
   render: function () {
     var seats = (this.seats)
-    for (var i = 0; i <= seats; i++) {
+    for (var i = 1; i <= seats; i++) {
       $('#seatsgrid').append('<div class="seat">'+i+'</div>');
     };
   }

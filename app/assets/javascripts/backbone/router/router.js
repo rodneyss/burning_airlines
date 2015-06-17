@@ -28,11 +28,12 @@ app.AppRouter = Backbone.Router.extend({
 
   routes: {
     '': 'home',
-    'flights/:id': 'viewFlight',
-    'planes/:id': 'viewPlane',
-    'user': 'viewUser',
     'flights/create': "createFlight",
     'planes/create': "createPlane",
+    'flights/:id': 'viewFlight',
+    'planes/:id': 'viewPlane',
+    'user': 'viewUser'
+
 
   },
 
