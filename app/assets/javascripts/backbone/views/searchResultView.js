@@ -5,18 +5,22 @@ app.SearchResultView = Backbone.View.extend({
     'click': 'showReservations'
   },
   initialize: function(options){
-    flight = options
-    console.log("inside SearchResultView", options);
+
+    
   },
+
   showReservations: function(){
-    console.log("this is happening");
+    console.log("need to go to: ", this.model.get('id') );
+    app.router.navigate('flights/' + this.model.get('id'), true);
   },
+
   render: function(){
-    console.log("trying to render shit", this.model);
+   
     var flightsTemplate = $('#flightsTemplate').html();
     var flightsListHTML = _.template(flightsTemplate);
-    console.log(this.model.toJSON() );
+   
     this.$el.html(flightsListHTML( this.model.toJSON() ) );
     $('#flights').append(this.$el);
-  }
+  },
+
 });

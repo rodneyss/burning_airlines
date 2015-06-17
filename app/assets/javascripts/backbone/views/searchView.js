@@ -34,7 +34,9 @@ app.SearchView = Backbone.View.extend({
         });
 
     }
-  }
+  },
+
+
 
 
 
