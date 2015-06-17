@@ -9,7 +9,8 @@ app.FlightsListView = Backbone.View.extend({
 
 	},
 	showReservations: function(){
-		console.log("this is happening");
+		console.log(this.model);
+		app.router.navigate('flights/'+this.model.get('id'),true)
 	},
 	render: function(){
 		var flightsListTemplate = $('#flightsListTemplate').html();
