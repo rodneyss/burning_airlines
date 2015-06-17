@@ -6,7 +6,7 @@ app.FlightsListView = Backbone.View.extend({
 		'click': 'showReservations'
 	},
 	initialize: function(){
-
+		
 	},
 	showReservations: function(){
 		console.log(this.model);
