@@ -1,5 +1,6 @@
 var app = app || {}
 
+
 _.templateSettings = {
  evaluate : /\{\[([\s\S]+?)\]\}/g,     // {[ console.log("Hello"); ]} - runs
  interpolate : /\{\{([\s\S]+?)\}\}/g   // {{ key }} - interpolates
@@ -27,6 +28,12 @@ $(function () {
       app.router.navigate('/planes/create', true);
       console.log('Navigating to plane creation page');
     });
+    $('body').on('click',"#userPgLink",function(e){
+      app.router.navigate('/user', true);
+      console.log('Navigating to user page');
+    });
+
+    
    	});
   });
 })

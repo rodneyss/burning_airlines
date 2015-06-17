@@ -11,7 +11,9 @@ app.PlanePgView = Backbone.View.extend({
     this.$el.html(planesPgHTML);
   },
   planeCreation: function (e) {
+
   e.preventDefault();
+  // e.stopPropagation();
   var name = $('#planeName').val().trim()
   var seats = $('#planeSeats').val().trim()
   var plane = new app.Plane({

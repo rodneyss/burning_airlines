@@ -2,9 +2,15 @@ class AppController < ApplicationController
 
   def index
   	@user_id = session[:user_id]
+  
+
   	if request.xhr?
   		render :json => @user_id
   	end
+
+    if !@user_id
+      redirect_to login_path
+    end
   end
 
 

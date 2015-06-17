@@ -17,8 +17,9 @@ app.FlightView=Backbone.View.extend({
 		// Checking for the flight id of this view
 		// console.log(this.model.get('id'));
 		console.log(this.model.get('id'));
-		app.flightView.reservations = new app.Reservations({flight_id: this.model.get('id')});
-		app.flightView.reservations.fetch();
+		// app.flightView.reservations = new app.Reservations({flight_id: this.model.get('id')});
+		// app.flightView.reservations.fetch();
+
 		//CHECKING FOR THE RESERVATION MODEL OF THIS VIEW 
 		// console.log(app.flightView.reservations.models);
 
@@ -85,16 +86,26 @@ app.FlightView=Backbone.View.extend({
 		});
 		reservation.save().done(function(){
 			console.log("save complete");
-			app.flightView.reservations.fetch().done(function(){
-				var flight = app.appFlights.get(view.flight_id);
-				var flightViewRef = new app.FlightView({model:flight});
-				$(".seats").off("click");
-				flightViewRef.render();
-			});
+			app.flightView.reservations.fetch()
+			// app.flightView.reservations.fetch().done(function(){
+			// 	var flight = app.appFlights.get(view.flight_id);
+			// 	var flightViewRef = new app.FlightView({model:flight});
+			// 	$(".seats").off("click");
+			// 	flightViewRef.render();
+			// });
 
 		})
 	},
+	test:function(){
+		console.log("THIS IS A TEST");
+	},
 	initialize: function(options){
 		this.plane = app.appPlanes.get(this.model.get('plane_id'));
+		this.reservations = options.collection;
+		// this.listenTo(this.reservations,'add',this.test);
+
+		// this.reservations = new app.Reservations({flight_id: this.model.get('id')});
+		// this.reservations.fetch();
+		// this.listenTo(this.reservations, 'add', this.test);
 	},
 });

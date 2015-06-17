@@ -51,7 +51,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-  root :to => "session#new"
+  # root :to => "session#new"
+  root :to => "app#index"
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'
