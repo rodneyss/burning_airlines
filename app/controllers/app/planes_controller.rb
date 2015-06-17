@@ -31,7 +31,6 @@ class App::PlanesController < ApplicationController
   # POST /planes.json
   def create
     @plane = Plane.new(plane_params)
-
     respond_to do |format|
       if @plane.save
         format.html { redirect_to @plane, notice: 'Plane was successfully created.' }
