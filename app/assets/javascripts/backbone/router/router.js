@@ -30,7 +30,6 @@ app.AppRouter = Backbone.Router.extend({
     '': 'home',
     'flights/create': "createFlight",
     'planes/create': "createPlane",
-    'flights': 'viewFlight'
   },
 
   createFlight: function () {
