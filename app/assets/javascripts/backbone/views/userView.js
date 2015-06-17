@@ -1,3 +1,4 @@
+
 var app = app || {};
 app.UserView = Backbone.View.extend({
   el:'#views', 
@@ -45,3 +46,4 @@ app.UserView = Backbone.View.extend({
   }
 
 });
+

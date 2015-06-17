@@ -5,13 +5,19 @@ app.SearchView = Backbone.View.extend({
     'submit #searchFlight': 'displayFlight',
   },
   initialize: function(options){
+    console.log( options );
 
+    this.flights = options.flights;
+    this.planes = options.planes;
     
   },
+
   render: function(){
+    console.log( this );
+    var nav = $('#adminNavTemplate').html()
+    $('#navigation nav').html(nav)
     var appHTML = $('#appTemplate').html();
     this.$el.html(appHTML);
-
   },
   displayFlight: function(e){
     e.preventDefault();
