@@ -4,7 +4,5 @@ app.Plane = Backbone.Model.extend({
   default:{
    name: "death machine 01",
    seats: 20
-  },
-  initialize:function(){
   }
 });

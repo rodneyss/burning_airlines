@@ -5,11 +5,13 @@ app.FlightPgView = Backbone.View.extend({
 		'submit #searchFlight': 'displayFlight',
 	},
 	initialize: function(options){
-		console.log(options);
-		this.planes = options.planes
-		this.flights= options.flights
+		debugger
+		this.planes = options.planes;
+		this.flights= options.flights;
 	},
 	render: function(){
+		var nav = $('#adminNavTemplate').html();
+		$('#navigation nav').html(nav);
 		var flightsPgHTML = $('#flightsPgTemplate').html();
 		this.$el.html(flightsPgHTML);
 		this.flights.each(function(flight){

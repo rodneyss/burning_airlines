@@ -1,5 +1,6 @@
 <!-- Template for the main app view -->
-<section class="container">
+<section id ="navigation" class="container">
+	<nav></nav>
 	<h2>Burning Airlines</h2>
 	<div id="views">
 	</div>
@@ -9,6 +10,20 @@
 		
 	</section>
 </footer>
+
+<!-- ADMINT NAV TEMPLATE -->
+<!-- VISIBLE ONLY ON THE FLIGHTVIEW and FLIGHTPGVIEW views -->
+<script id="adminNavTemplate" type="template/text">
+		<p id="homeLink">Home</p>
+		<p id="flightPgLink">Create Flight</p>
+		<p id="planePgLink">Create Plane</p>
+</script>
+
+<!-- REG USER NAV TEMPLATE  -->
+<!-- VISIBLE ONLY ON THE SEARCHVIEW AND FLIGHTVIEW views  -->
+<script id="userNavTemplate" type="template/text">
+			<p id="homeLink">Home</p>
+</script>
 <script id="appTemplate" type="template/text">
 	<form id="searchFlight">
 		<input id="fromLoc" type="text" placeholder="from" name="from">
@@ -43,6 +58,8 @@
 		
 	</div>
 </script>
+
+
 <!-- Template for the airplane view -->
 <script id="planeViewTemplate" type="template/text">
 	<button>Create Plane</button>
@@ -51,7 +68,7 @@
 <!-- This will be nexted inside the AppView  -->
 <script id="PlanePgTemplate" type="template/text">
 	<div id="createPlane">
-		<form id="flightsSearch">
+		<form id="formCreatePlane">
 			<input id="planeName" type="text" placeholder="name" name="name">
 			<input id="planeSeats" type="number" placeholder="seats" name="seats">
 			<input id="planeSubmit" type="submit" value="Create">
@@ -66,6 +83,8 @@
 
 	</div>
 </script>
+
+
 <script id="flightsPgTemplate" type="template/text">
 	<form id="searchFlight">
 		<input type="text" name="from" placeholder="from" id="fromLoc">
