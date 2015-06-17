@@ -34,8 +34,8 @@ $(function () {
     });
 
 
-    $('.tlt').textillate({ in: { effect: 'rotateInUpRight',
-                                shuffle:true,
+    $('.tlt').textillate({ in: { effect: 'rollIn',
+                                sync:true,
                                 callback: function () {
                                   $('.burning').burn();
                                 } } });
