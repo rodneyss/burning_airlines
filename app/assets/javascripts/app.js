@@ -8,9 +8,10 @@ _.templateSettings = {
 $(function () {
  	app.appFlights = new app.Flights();
  	app.appPlanes = new app.Planes();
- 	app.appPlanes.fetch();
- 	app.appFlights.fetch().done(function(){
- 		app.router = new app.AppRouter();
-		Backbone.history.start();
- 	})
+ 	app.appPlanes.fetch().done(function () {
+   	app.appFlights.fetch().done(function(){
+   		app.router = new app.AppRouter();
+  		Backbone.history.start();
+   	});
+  });
 })

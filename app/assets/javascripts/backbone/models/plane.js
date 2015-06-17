@@ -1,10 +1,8 @@
 var app = app || {};
-app.plane = Backbone.Model.extend({
+app.Plane = Backbone.Model.extend({
   urlRoot: '/app/planes',
   default:{
    name: "death machine 01",
    seats: 20
-  },
-  initialize:function(){
   }
 });

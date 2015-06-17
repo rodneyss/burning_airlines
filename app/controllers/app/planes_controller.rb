@@ -30,17 +30,8 @@ class App::PlanesController < ApplicationController
   # POST /planes
   # POST /planes.json
   def create
-    @plane = Plane.new(plane_params)
-
-    respond_to do |format|
-      if @plane.save
-        format.html { redirect_to @plane, notice: 'Plane was successfully created.' }
-        format.json { render :show, status: :created, location: @plane }
-      else
-        format.html { render :new }
-        format.json { render json: @plane.errors, status: :unprocessable_entity }
-      end
-    end
+    plane = Plane.create plane_params 
+    render :json => plane
   end
 
   # PATCH/PUT /planes/1
@@ -75,6 +66,6 @@ class App::PlanesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plane_params
-      params.require(:plane).permit(:name, :row, :column)
+      params.require(:plane).permit(:name, :seats)
     end
 end
