@@ -35,7 +35,10 @@ $(function () {
 
 
     $('.tlt').textillate({ in: { effect: 'rotateInUpRight',
-                                shuffle:true } });
+                                shuffle:true,
+                                callback: function () {
+                                  $('.burning').burn();
+                                } } });
 
    	});
   });
