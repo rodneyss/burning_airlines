@@ -29,6 +29,7 @@ app.AppRouter = Backbone.Router.extend({
     '': 'home',
     'flights/:id': 'viewFlight',
     'planes/:id': 'viewPlane',
+    'user': 'viewUser'
   },
 
   viewPlane: function (id) {
@@ -52,6 +53,13 @@ app.AppRouter = Backbone.Router.extend({
       planes: app.appPlanes
     });
     searchView.render();
+  },
+
+  viewUser: function () {
+    var user = new app.UserView({model: user});
+    user.render();
   }
+
+
 
 });
