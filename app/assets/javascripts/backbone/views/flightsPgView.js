@@ -5,7 +5,6 @@ app.FlightPgView = Backbone.View.extend({
 		'submit #searchFlight': 'displayFlight',
 	},
 	initialize: function(options){
-		debugger
 		this.planes = options.planes;
 		this.flights= options.flights;
 	},
