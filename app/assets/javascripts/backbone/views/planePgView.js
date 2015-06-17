@@ -5,8 +5,10 @@ app.PlanePgView = Backbone.View.extend({
     'submit #createPlane': 'planeCreation',
   },
   render: function (){
+    var nav = $('#adminNavTemplate').html();
+    $('#navigation nav').html(nav);
     var planesPgHTML = $('#PlanePgTemplate').html()
-    this.$el.html(planesPgHTML)
+    this.$el.html(planesPgHTML);
   },
   planeCreation: function (e) {
   e.preventDefault();

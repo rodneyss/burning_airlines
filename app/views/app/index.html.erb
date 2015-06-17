@@ -1,20 +1,29 @@
 <!-- Template for the main app view -->
-<section class="container">
+<section id ="navigation" class="container">
+	<nav></nav>
 	<h2>Burning Airlines</h2>
 	<div id="views">
 	</div>
-</section>
-
-<section>
-	<nav>
-		<a href="">Home</a>
-	</nav>
 </section>
 <footer>
 	<section class="container">
 		
 	</section>
 </footer>
+
+<!-- ADMINT NAV TEMPLATE -->
+<!-- VISIBLE ONLY ON THE FLIGHTVIEW and FLIGHTPGVIEW views -->
+<script id="adminNavTemplate" type="template/text">
+		<p id="homeLink">Home</p>
+		<p id="flightPgLink">Create Flight</p>
+		<p id="planePgLink">Create Plane</p>
+</script>
+
+<!-- REG USER NAV TEMPLATE  -->
+<!-- VISIBLE ONLY ON THE SEARCHVIEW AND FLIGHTVIEW views  -->
+<script id="userNavTemplate" type="template/text">
+			<p id="homeLink">Home</p>
+</script>
 <script id="appTemplate" type="template/text">
 	<form id="searchFlight">
 		<input id="fromLoc" type="text" placeholder="from" name="from">

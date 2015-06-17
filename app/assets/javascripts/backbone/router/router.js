@@ -25,18 +25,28 @@ var app = app || {};
 
 // Router is similar to routes.rb in Rails but with code actions as well.
 app.AppRouter = Backbone.Router.extend({
+
   routes: {
     '': 'home',
-    'flights/:id': 'viewFlight',
-    'planes/:id': 'viewPlane',
+    'flights/create': "createFlight",
+    'planes/create': "createPlane",
+    'flights': 'viewFlight'
   },
 
-  viewPlane: function (id) {
-    var plane = app.planes.get(id);
-    var planeView = new PlaneView({model: plane})
-    viewPlane.render()
+  createFlight: function () {
+    // Create an instance of the view - pass in the collection
+    // And then render it
+    var createFlight = new app.FlightPgView({
+      flights: app.appFlights,
+      planes: app.appPlanes
+    })
+    createFlight.render()
   },
-
+  createPlane: function() {
+    console.log('create plane is running  ')
+    var createPlane = new app.PlanePgView
+    createPlane.render();
+  },
   viewFlight: function (id) {
     var flight = app.appFlights.get(id);
     app.flightView = new app.FlightView({model: flight});
@@ -44,8 +54,6 @@ app.AppRouter = Backbone.Router.extend({
     app.flightView.render();
   },
   home: function () {
-    // var appView = new app.AppView({})
-    // appView.render()
     var searchView = new app.SearchView({
       flights: app.appFlights,
       planes: app.appPlanes

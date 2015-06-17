@@ -2,6 +2,8 @@ var app = app || {};
 app.FlightView=Backbone.View.extend({
 	el: '#views',
 	render: function(){
+		var nav = $('#adminNavTemplate').html();
+		$('#navigation nav').html(nav);
 		var flightTemplate = $('#flightTemplate').html();
 		var flightHTML = _.template(flightTemplate);
 		var userId = null;
