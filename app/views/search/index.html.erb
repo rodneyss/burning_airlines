@@ -10,13 +10,13 @@
 	</section>
 </footer>
 <script id="appTemplate" type="template/text">
-	<form>
+	<form id="searchFlight">
 		<input id="fromLoc" type="text" placeholder="from" name="from">
 		<input id="toLoc" type="text" placeholder="to" name="to">
 		<input type="submit" value="search">
 	</form>
 	<div class="container">
-		<ul id="searchResults"></ul>
+		<ul id="flights"></ul>
 	</div>
 </script>
 <!-- Template for the airplane view -->
@@ -27,7 +27,7 @@
 <!-- This will be nexted inside the AppView  -->
 <script id="PlanePgTemplate" type="template/text">
 	<div id="createPlane">
-		<form id="flightsSearch">
+		<form id="flightSearch">
 			<input id="planeName" type="text" placeholder="name" name="name">
 			<input id="planeSeats" type="number" placeholder="seats" name="seats">
 			<input id="planeSubmit" type="submit" value="Create">
@@ -54,11 +54,13 @@
 <script id="flightsListTemplate" type="template/text">
 	<li>{{id}} {{to}}</li>
 </script>
+
+<!-- modded -->
 <script id="flightsTemplate"  type="template/text">
 	<tr>
-		<td>{{date}}</td>
-		<td>{{flightId}}</td>
-		<td>{{from}}>{{to}}</td>
-		<td>{{planeId}}</td>
+		// <td>{{flight.date}}</td>
+		<td>{{flight.id}}</td>
+		<td>{{flight.from}}>{{flight.to}}</td>
+		<td>{{flight.plane_id}}</td>
 	</tr>
 </script>

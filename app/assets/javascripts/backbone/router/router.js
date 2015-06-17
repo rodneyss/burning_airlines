@@ -46,11 +46,11 @@ app.AppRouter = Backbone.Router.extend({
   home: function () {
     // var appView = new app.AppView({})
     // appView.render()
-    var flightPgView = new app.FlightPgView({
+    var searchView = new app.SearchView({
       flights: app.appFlights,
       planes: app.appPlanes
     });
-    flightPgView.render();
+    searchView.render();
   }
 
 });

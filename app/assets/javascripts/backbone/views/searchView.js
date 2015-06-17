@@ -1,32 +1,41 @@
 var app = app || {};
-app.SearchPgView = Backbone.View.extend({
+app.SearchView = Backbone.View.extend({
   el:'#views', 
   events:{
     'submit #searchFlight': 'displayFlight',
   },
   initialize: function(options){
 
-    this.flights= options.flights
+    
   },
   render: function(){
-    var flightsPgHTML = $('#flightsPgTemplate').html();
-    this.$el.html(flightsPgHTML);
+    var appHTML = $('#appTemplate').html();
+    this.$el.html(appHTML);
 
   },
   displayFlight: function(e){
     e.preventDefault();
     var to= $('#toLoc').val().trim();
     var from= $('#fromLoc').val().trim();
-    var plane_id = $('#flightPlane').val().trim();
+    this.flightResults = app.appFlights.where({
+      from:from,
+      to:to
+    })
+  
+    if(this.flightResults.length === 0){
+          
+          alert("no flights found");
 
-    var flightResults = _.where(app.Flights, {from: to, to: to} );
+    }else{
+        _(this.flightResults).each(function(flight){
+        var searchResult = new app.SearchResultView({model: flight});
+        searchResult.render();
 
+        });
 
-    flightResults.each(function(flight){
-      var flightsListView = new app.FlightsListView({model:flight});
-      flightsListView.render();
-    }); 
-
+    }
   }
+
+
 
 });
