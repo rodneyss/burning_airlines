@@ -20,12 +20,14 @@ app.UserView = Backbone.View.extend({
     }).done( function(userFlights){
         console.log(userFlights);
 
+
         for(var i = 0 ; i <userFlights.length; i++){
           var flight = app.appFlights.where({id: userFlights[i]});
             flightResults.push(flight);
         }
 
-        flightResults = _.flatten(flightResults); 
+        flightResults = _.flatten(flightResults);
+        flightResults = _.unique(flightResults); 
         console.log(flightResults);
         if(flightResults.length === 0){
 
