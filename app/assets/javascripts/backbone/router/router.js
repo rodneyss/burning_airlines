@@ -38,8 +38,10 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   viewFlight: function (id) {
-    var flight = app.appFlights.get(id);
-    app.flightView = new app.FlightView({model: flight});
+    app.reservations = new app.Reservations({flight_id: id});
+    app.reservations.fetch();
+    app.flight = app.appFlights.get(id);
+    app.flightView = new app.FlightView({model: app.flight, collection: app.reservations});
     console.log("Routing now");
     app.flightView.render();
   },
