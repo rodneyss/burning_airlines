@@ -4,11 +4,16 @@ app.FlightView=Backbone.View.extend({
 	render: function(){
 		var flightTemplate = $('#flightTemplate').html();
 		var flightHTML = _.template(flightTemplate);
-		var userId = null;
 		var view = this;
+
+		// Checking for the flight id of this view
+		// console.log(this.model.get('id'));
 		console.log(this.model.get('id'));
-		this.reservations = new app.Reservations({flight_id: this.model.get('id')});
-		console.log(this.reservations);
+		app.flightView.reservations = new app.Reservations({flight_id: this.model.get('id')});
+		app.flightView.reservations.fetch();
+		//CHECKING FOR THE RESERVATION MODEL OF THIS VIEW 
+		// console.log(app.flightView.reservations.models);
+
 		$.get('/app',function(){
 
 		}).done(function(data){
@@ -17,18 +22,29 @@ app.FlightView=Backbone.View.extend({
 			view.$el.html(flightHTML(view.model.toJSON()));
 			var plane = view.plane;
 			var seats = view.plane.get('seats');
+			var takenseats = []
+			app.flightView.reservations.each(function(reservation){
+				takenseats.push(reservation.get('seat'));
+			});
+			var takenseats = _.uniq(takenseats);
+			console.log(takenseats);
 			for(var i=1; i<=seats; i++){
-				view.$el.append('<div class="seats"id="'+i+'">'+i+'</div>');
+				var seatClass = "seats";
+				view.$el.append('<div class="'+seatClass+'"id="'+i+'">'+i+'</div>');
 			}
+			for(var i=0; i<takenseats.length; i++){
 
-			
+				$('#'+i).addClass('taken');
+			}
 			$('body').on('click','.seats',function(e){
 				var seat=parseInt($(e.currentTarget).attr('id'));
-				$(seat).toggleClass('selected');
-				view.reserveSeat({
-					seat_id: seat,
-					flight_id: view.model.get('id'),
-					user_id: userID });
+					if($(this).hasClass('taken')!==true){
+						$(seat).toggleClass('selected');
+						view.reserveSeat({
+							seat_id: seat,
+							flight_id: view.model.get('id'),
+							user_id: userID });
+					}
 			});
 		});
 		
@@ -36,9 +52,10 @@ app.FlightView=Backbone.View.extend({
 	},
 
 	reserveSeat: function(option){
-		console.log(option.flight_id);
-		console.log(option.seat_id);
-		console.log(option.user_id);
+		//CHECK ALL THE OPTIONS ARE PASSING THROUGH CORRECTLY
+		// console.log(option.flight_id);
+		// console.log(option.seat_id);
+		// console.log(option.user_id);
 		var reservation = new app.Reservation({
 			flight_id: option.flight_id,
 			seat: option.seat_id,
@@ -46,10 +63,8 @@ app.FlightView=Backbone.View.extend({
 		});
 		reservation.save().done(function(){
 			console.log("save complete");
-			app.flightView.reservations.fetch({
-				data: {
-					id: 3
-				}
+			app.flightView.reservations.fetch().done(function(data){
+				console.log(app.flightView.reservations);
 			});
 		})
 	},
