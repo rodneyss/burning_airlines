@@ -5,6 +5,7 @@ app.FlightPgView = Backbone.View.extend({
 		'submit #searchFlight': 'displayFlight',
 	},
 	initialize: function(options){
+		console.log(options);
 		this.planes = options.planes
 		this.flights= options.flights
 	},
@@ -13,7 +14,6 @@ app.FlightPgView = Backbone.View.extend({
 		this.$el.html(flightsPgHTML);
 		this.flights.each(function(flight){
 			var flightsListView = new app.FlightsListView({model:flight});
-			console.log(flight);
 			flightsListView.render();
 		});	
 		this.planes.each(function(plane){
@@ -33,10 +33,7 @@ app.FlightPgView = Backbone.View.extend({
 		});
 		var view = this;
 		flight.save().done(function(){
-			view.flights.fetch().done(function(){
-				var flightPgRef = new app.FlightsListView({model: flight});
-		 		flightPgRef.render();
-			});
+			view.flights.fetch();
 		});
 	}
 });

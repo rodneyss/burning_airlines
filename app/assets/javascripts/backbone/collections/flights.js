@@ -8,9 +8,8 @@ app.Flights = Backbone.Collection.extend({
   	return '/app/flights';
   },
   initialize:function(){
-  	// this.plane_id
+  	this.plane_id
   	this.on('add', function(flight){
-  		console.log(flight);
   		var flightPgRef = new app.FlightsListView({model: flight});
   		flightPgRef.render();
   	});

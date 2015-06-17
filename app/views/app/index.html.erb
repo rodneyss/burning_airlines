@@ -10,13 +10,13 @@
 	</section>
 </footer>
 <script id="appTemplate" type="template/text">
-	<form>
+	<form id="searchFlight">
 		<input id="fromLoc" type="text" placeholder="from" name="from">
 		<input id="toLoc" type="text" placeholder="to" name="to">
 		<input type="submit" value="search">
 	</form>
 	<div class="container">
-		<ul id="searchResults"></ul>
+		<ul id="flights"></ul>
 	</div>
 </script>
 
@@ -63,11 +63,16 @@
 <script id="flightsListTemplate" type="template/text">
 	{{id}} {{from}}
 </script>
+
+
 <script id="flightsTemplate"  type="template/text">
 	<tr>
 		<td>{{date}}</td>
-		<td>{{flightId}}</td>
+		<td>{{id}}</td>
 		<td>{{from}}>{{to}}</td>
-		<td>{{planeId}}</td>
+		<td>{{plane_id}}</td>
 	</tr>
+</script>
+<script id="flightTemplate" type="template/text">
+	<h2>{{id}}</h2>
 </script>

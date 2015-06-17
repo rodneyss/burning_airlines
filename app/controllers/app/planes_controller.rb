@@ -33,7 +33,6 @@ class App::PlanesController < ApplicationController
     plane = Plane.create plane_params 
     render :json => plane
   end
-
   # PATCH/PUT /planes/1
   # PATCH/PUT /planes/1.json
   def update
